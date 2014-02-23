@@ -46,5 +46,5 @@ Tested under iOS SDK version 7 and Xcode 5.0.2. Runs on iOS 5.0.0 or above.
 TODO
 ====
 
-- [ ] Support CocoaPods
-- [ ] (Possibly) Multiple tracker support, if requested
+- Support CocoaPods
+- (Possibly) Multiple tracker support, if requested
