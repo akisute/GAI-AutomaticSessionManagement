@@ -39,9 +39,12 @@ After you added the library, all you have to do is to import `GAI+AutomaticSessi
 }
 ```
 
+Note that only sessions tracked by the default tracker will be managed automatically. If you have other trackers, this library won't do anything automatically.
+
 Tested under iOS SDK version 7 and Xcode 5.0.2. Runs on iOS 5.0.0 or above.
 
 TODO
 ====
 
 - [ ] Support CocoaPods
+- [ ] (Possibly) Multiple tracker support, if requested
