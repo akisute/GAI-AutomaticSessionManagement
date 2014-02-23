@@ -16,7 +16,7 @@ https://developers.google.com/analytics/devguides/collection/ios/v3/
 1. Clone the repository.
 2. Copy all files under `Classes` folder to your project.
 
-After your added the library, all you have to do is to import `GAI+AutomaticSessionManagement.h` and initialize it, like this:
+After you added the library, all you have to do is to import `GAI+AutomaticSessionManagement.h` and initialize like this:
 
 ```objc
 #import "AppDelegate.h"
