@@ -79,7 +79,7 @@ static NSString *ASMPropertyKey_tracker = @"ASMPropertyKey_tracker";
 - (NSTimeInterval)ASM_sessionTimeout
 {
     NSNumber *n = objc_getAssociatedObject(self, (__bridge const void *)(ASMPropertyKey_sessionTimeout));
-    return [n doubleValue];
+    return (n) ? [n doubleValue] : kASMDefaultSessionTimeout;
 }
 
 - (void)setASM_sessionTimeout:(NSTimeInterval)sessionTimeout
@@ -148,7 +148,7 @@ static NSString *ASMPropertyKey_tracker = @"ASMPropertyKey_tracker";
 
 - (void)ASM_onUIApplicationWillEnterForegroundNotification:(NSNotification *)notification
 {
-    NSTimeInterval delta = (self.ASM_sessionTimeout == 0) ? kASMDefaultSessionTimeout : self.ASM_sessionTimeout;
+    NSTimeInterval delta = (self.ASM_sessionTimeout < 0.01) ? kASMDefaultSessionTimeout : self.ASM_sessionTimeout;
     NSDate *currentDate = [NSDate date];
     NSDate *expireDate = (self.ASM_latestDidEnterBackgroundDate == nil) ? [NSDate distantPast] : [NSDate dateWithTimeInterval:delta sinceDate:self.ASM_latestDidEnterBackgroundDate];
     if ([[currentDate earlierDate:expireDate] isEqualToDate:expireDate]) {
