@@ -143,18 +143,18 @@ static NSString *ASMPropertyKey_tracker = @"ASMPropertyKey_tracker";
 
 - (void)ASM_onUIApplicationDidEnterBackgroundNotification:(NSNotification *)notification
 {
-    self.ASM_latestDidEnterBackgroundDate = [NSDate date];
+    [self setASM_latestDidEnterBackgroundDate:[NSDate date]];
 }
 
 - (void)ASM_onUIApplicationWillEnterForegroundNotification:(NSNotification *)notification
 {
     NSTimeInterval delta = (self.ASM_sessionTimeout < 0.01) ? kASMDefaultSessionTimeout : self.ASM_sessionTimeout;
     NSDate *currentDate = [NSDate date];
-    NSDate *expireDate = (self.ASM_latestDidEnterBackgroundDate == nil) ? [NSDate distantPast] : [NSDate dateWithTimeInterval:delta sinceDate:self.ASM_latestDidEnterBackgroundDate];
+    NSDate *expireDate = ([self ASM_latestDidEnterBackgroundDate] == nil) ? [NSDate distantPast] : [NSDate dateWithTimeInterval:delta sinceDate:[self ASM_latestDidEnterBackgroundDate]];
     if ([[currentDate earlierDate:expireDate] isEqualToDate:expireDate]) {
         [self ASM_setNextTrackingAsSessionStart];
     }
-    self.ASM_latestDidEnterBackgroundDate = nil;
+    [self setASM_latestDidEnterBackgroundDate:nil];
 }
 
 @end

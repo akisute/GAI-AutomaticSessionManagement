@@ -39,7 +39,6 @@
 @interface GAI (AutomaticSessionManagement)
 
 @property (nonatomic) NSTimeInterval ASM_sessionTimeout;
-@property (nonatomic) NSDate *ASM_latestDidEnterBackgroundDate;
 
 - (void)ASM_setDefaultTracker:(id<GAITracker>)defaultTracker;
 - (void)ASM_setNextTrackingAsSessionStart;
