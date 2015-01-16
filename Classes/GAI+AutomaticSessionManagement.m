@@ -46,6 +46,16 @@
     return self.originalTracker.name;
 }
 
+- (BOOL)allowIDFACollection
+{
+    return self.originalTracker.allowIDFACollection;
+}
+
+- (void)setAllowIDFACollection:(BOOL)allowIDFACollection
+{
+    self.originalTracker.allowIDFACollection = allowIDFACollection;
+}
+
 - (void)set:(NSString *)parameterName value:(NSString *)value
 {
     [self.originalTracker set:parameterName value:value];
